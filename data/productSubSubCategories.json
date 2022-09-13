@@ -1,0 +1,130 @@
+[
+  {
+    "name": "Diet",
+    "ProductSubCategoryId": 1
+  },
+  {
+    "name": "Nutrition",
+    "ProductSubCategoryId": 1
+  },
+  {
+    "name": "Child Health",
+    "ProductSubCategoryId": 1
+  },
+  {
+    "name": "Workout & Fitness",
+    "ProductSubCategoryId": 1
+  },
+  {
+    "name": "Interior & Exterior",
+    "ProductSubCategoryId": 2
+  },
+  {
+    "name": "Method & Material",
+    "ProductSubCategoryId": 2
+  },
+  {
+    "name": "Garden",
+    "ProductSubCategoryId": 2
+  },
+  {
+    "name": "Diet Food",
+    "ProductSubCategoryId": 3
+  },
+  {
+    "name": "Pastry",
+    "ProductSubCategoryId": 3
+  },
+  {
+    "name": "English",
+    "ProductSubCategoryId": 4
+  },
+  {
+    "name": "French",
+    "ProductSubCategoryId": 4
+  },
+  {
+    "name": "TV Box",
+    "ProductSubCategoryId": 5
+  },
+  {
+    "name": "Cable & Connector",
+    "ProductSubCategoryId": 5
+  },
+  {
+    "name": "CCTV",
+    "ProductSubCategoryId": 6
+  },
+  {
+    "name": "Metal Detector",
+    "ProductSubCategoryId": 6
+  },
+  {
+    "name": "Motion Detector",
+    "ProductSubCategoryId": 6
+  },
+  {
+    "name": "Vacum Cleaner",
+    "ProductSubCategoryId": 7
+  },
+  {
+    "name": "Hand Blower",
+    "ProductSubCategoryId": 7
+  },
+  {
+    "name": "Speaker",
+    "ProductSubCategoryId": 8
+  },
+  {
+    "name": "Earphone",
+    "ProductSubCategoryId": 8
+  },
+  {
+    "name": "Shoes",
+    "ProductSubCategoryId": 9
+  },
+  {
+    "name": "Clothing",
+    "ProductSubCategoryId": 9
+  },
+  {
+    "name": "Shoes",
+    "ProductSubCategoryId": 10
+  },
+  {
+    "name": "Clothing",
+    "ProductSubCategoryId": 10
+  },
+  {
+    "name": "Shoes",
+    "ProductSubCategoryId": 11
+  },
+  {
+    "name": "Clothing",
+    "ProductSubCategoryId": 11
+  },
+  {
+    "name": "Playstation",
+    "ProductSubCategoryId": 12
+  },
+  {
+    "name": "XBox",
+    "ProductSubCategoryId": 12
+  },
+  {
+    "name": "CD Playstation",
+    "ProductSubCategoryId": 13
+  },
+  {
+    "name": "CD XBox",
+    "ProductSubCategoryId": 13
+  },
+  {
+    "name": "Gamepad",
+    "ProductSubCategoryId": 14
+  },
+  {
+    "name": "Smartphone Signal Booster",
+    "ProductSubCategoryId": 14
+  }
+]

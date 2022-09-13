@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Health and Lifestyle",
+    "ProductCategoryId": 1
+  },
+  {
+    "name": "Architecture & Design",
+    "ProductCategoryId": 1
+  },
+  {
+    "name": "Food Recipes",
+    "ProductCategoryId": 1
+  },
+  {
+    "name": "Dictionary",
+    "ProductCategoryId": 1
+  },
+  {
+    "name": "TV & Accessories",
+    "ProductCategoryId": 2
+  },
+  {
+    "name": "Surveillance Camera",
+    "ProductCategoryId": 2
+  },
+  {
+    "name": "Household Electronics",
+    "ProductCategoryId": 2
+  },
+  {
+    "name": "Audio",
+    "ProductCategoryId": 2
+  },
+  {
+    "name": "Male",
+    "ProductCategoryId": 3
+  },
+  {
+    "name": "Female",
+    "ProductCategoryId": 3
+  },
+  {
+    "name": "Unisex",
+    "ProductCategoryId": 3
+  },
+  {
+    "name": "Game Console",
+    "ProductCategoryId": 4
+  },
+  {
+    "name": "CD Game",
+    "ProductCategoryId": 4
+  },
+  {
+    "name": "Mobile Gaming Accessories",
+    "ProductCategoryId": 4
+  }
+]
