@@ -32,6 +32,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      sold: Sequelize.INTEGER,
+      imgUrl: Sequelize.STRING,
       ProductSubSubCategoryId: {
         allowNull: false,
         type: Sequelize.INTEGER,

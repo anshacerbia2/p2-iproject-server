@@ -29,10 +29,12 @@ module.exports = {
         allowNull: false
       },
       birthDate: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false
       },
       gender: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       phoneNumber: {
         type: Sequelize.STRING,

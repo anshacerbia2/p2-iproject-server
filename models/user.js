@@ -12,11 +12,15 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       User.hasMany(models.Product);
     }
+
+    get fullName() {
+      return this.fName + ' ' + this.lName;
+    }
   }
   User.init({
     fName: {
-      allowNull: false,
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
         notNull: { msg: 'First Name field is required' },
         notEmpty: { msg: 'First Name field is required' },
@@ -66,8 +70,22 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    birthDate: DataTypes.DATE,
-    gender: DataTypes.STRING,
+    birthDate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate: {
+        notNull: { msg: 'Birth Date field is required' },
+        notEmpty: { msg: 'Birth Date field is required' },
+      }
+    },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: { msg: 'Gender field is required' },
+        notEmpty: { msg: 'Gender field is required' },
+      }
+    },
     phoneNumber: {
       type: DataTypes.STRING,
       allowNull: false,
