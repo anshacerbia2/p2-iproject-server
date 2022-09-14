@@ -9,6 +9,7 @@ router.use('/products', productRoutes);
 router.use('/categories', categoryRoutes);
 router.use(userRoutes);
 router.post('/charge', MidtransController.charge);
+router.post('/notifikasi', MidtransController.notification);
 router.use(errorHandler);
 
 module.exports = router;
