@@ -7,8 +7,8 @@ const { Op } = require('sequelize');
 class UserController {
   static async createUser(request, response, next) {
     try {
-      const { fName, lName, username, email, password, birthDate, gender, phoneNumber, address } = request.body;
-      await User.create({ fName, lName, username, email, password, birthDate, gender, phoneNumber, address });
+      const { fName, lName, username, email, password, city } = request.body;
+      await User.create({ fName, lName, username, email, password, city });
       response.status(201).json({
         message: 'Account created successfully',
       });

@@ -71,30 +71,6 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    birthDate: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      validate: {
-        notNull: { msg: 'Birth Date field is required' },
-        notEmpty: { msg: 'Birth Date field is required' },
-      }
-    },
-    gender: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notNull: { msg: 'Gender field is required' },
-        notEmpty: { msg: 'Gender field is required' },
-      }
-    },
-    phoneNumber: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notNull: { msg: 'Phone Number field is required' },
-        notEmpty: { msg: 'Phone Number field is required' },
-      }
-    },
     city: {
       type: DataTypes.STRING,
       allowNull: false,
