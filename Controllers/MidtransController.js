@@ -53,7 +53,7 @@ class MidtransController {
     try {
       const statusResponse = await apiClient.transaction.notification(request.body);
       const response_midtrans = JSON.stringify(statusResponse);
-      await Order.update({ response_midtrans }, { where: { id: request.body.id } });
+      await Order.update({ response_midtrans }, { where: { order_id: statusResponse.order_id } });
       response.status(200).json({ message: 'Update Succes' })
     } catch (error) {
 
