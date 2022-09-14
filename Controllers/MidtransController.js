@@ -56,7 +56,7 @@ class MidtransController {
       await Order.update({ response_midtrans }, { where: { order_id: statusResponse.order_id } });
       response.status(200).json({ message: 'Update Succes' })
     } catch (error) {
-
+      next(error)
     }
   }
 }
