@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Product.belongsTo(models.ProductSubSubCategory);
       Product.belongsTo(models.User);
+      Product.hasMany(models.Cart);
     }
   }
   Product.init({
@@ -23,7 +24,6 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.INTEGER,
     sold: DataTypes.INTEGER,
     imgUrl: DataTypes.STRING,
-    senderAddress: DataTypes.STRING,
     ProductSubSubCategoryId: DataTypes.INTEGER,
     UserId: DataTypes.INTEGER
   }, {

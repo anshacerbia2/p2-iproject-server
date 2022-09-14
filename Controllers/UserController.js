@@ -1,7 +1,7 @@
 const { OAuth2Client } = require('google-auth-library');
 const jwt = require('jsonwebtoken');
 const { comparePw } = require('../helpers/helpers')
-const { User } = require('../models');
+const { User, Cart, Product } = require('../models');
 const { Op } = require('sequelize');
 
 class UserController {
@@ -110,6 +110,62 @@ class UserController {
       });
     } catch (error) {
       next(error);
+    }
+  }
+
+  static async getCart(request, response, next) {
+    try {
+      const UserId = request.user.id;
+      const cart = await Cart.findAll({
+        where: { UserId },
+        include: {
+          model: Product
+        }
+      });
+      console.log(cart);
+      response.status(201).json(cart);
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  }
+
+  static async addCart(request, response, next) {
+    try {
+      const UserId = request.user.id;
+      const { ProductId } = request.params;
+      const { amount } = request.body;
+      const product = await Product.findByPk(ProductId);
+      if (!product) throw { status: 404, message: 'Product not found' };
+      if (+amount > +product.stock) throw {
+        status: 400,
+        errors: [
+          {
+            path: 'amount',
+            message: `Maximum amount is ${product.stock}`
+          }
+        ]
+      };
+      const oldCart = await Cart.findOne({ where: { UserId, ProductId } });
+      if (oldCart) await Cart.destroy({ where: { UserId, ProductId } });
+      await Cart.create({ UserId, ProductId, amount });
+      response.status(201).json({
+        name: product.name,
+        img: product.imgUrl
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async deleteCart(request, response, next) {
+    try {
+      const { CartId } = request.params;
+      await Cart.destroy({ where: { id: CartId } });
+      response.status(200).json({ message: 'success' });
+    } catch (error) {
+      // console.log(error);
+      // next(error);
     }
   }
 }

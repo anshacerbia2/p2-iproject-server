@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       User.hasMany(models.Product);
+      User.hasMany(models.Cart);
     }
 
     get fullName() {
@@ -94,7 +95,14 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: { msg: 'Phone Number field is required' },
       }
     },
-    address: DataTypes.STRING
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: { msg: 'City field is required' },
+        notEmpty: { msg: 'City field is required' },
+      }
+    }
   }, {
     sequelize,
     modelName: 'User',

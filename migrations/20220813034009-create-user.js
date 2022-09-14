@@ -40,7 +40,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      address: {
+      city: {
         type: Sequelize.STRING
       },
       createdAt: {
