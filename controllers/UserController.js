@@ -1,7 +1,7 @@
 const { OAuth2Client } = require('google-auth-library');
 const jwt = require('jsonwebtoken');
 const { comparePw } = require('../helpers/helpers')
-const { User, Cart, Product } = require('../models');
+const { User, Order, Cart, Product } = require('../models');
 const { Op } = require('sequelize');
 const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-smtp-transport');
@@ -112,16 +112,20 @@ class UserController {
         audiance: process.env.CLIENT_ID
       }); // jwt.verify
       const payload = ticket.getPayload();
+      console.log(payload);
       const data = await User.findOrCreate({
         where: { email: { [Op.eq]: payload.email } },
         hooks: false,
         defaults: {
+          fName: payload.given_name,
+          lName: payload.family_name,
           username: payload.name.toLowerCase().replace(' ', ''),
           email: payload.email,
           password: 'googlePassword',
+          city: 'Jakarta'
         }
       });
-      const user = { id: +data[0].dataValues.id, username: data[0].dataValues.username, role: data[0].dataValues.role }
+      const user = { id: +data[0].dataValues.id, username: data[0].dataValues.username }
       const access_token = jwt.sign(user, process.env.SECRET);
       response.status(200).json({
         statusCode: 200,
@@ -175,6 +179,31 @@ class UserController {
         img: product.imgUrl
       });
     } catch (error) {
+      next(error);
+    }
+  }
+
+  static async transactions(request, response, next) {
+    try {
+      const { id: UserId } = request.user;
+      const transactions = await Order.findAll({ where: { UserId } });
+      let result = []
+      if (transactions.length) {
+        result = transactions.map(v => {
+          const x = JSON.parse(v.response_midtrans);
+          return {
+            order_id: v.order_id,
+            gross_amount: x.gross_amount,
+            transactions_status: x.transaction_status,
+            bank: x.va_numbers[0].bank,
+            va_number: x.va_numbers[0].va_number,
+          }
+        })
+      }
+      console.log(result);
+      response.status(200).json(result);
+    } catch (error) {
+      console.log(error);
       next(error);
     }
   }

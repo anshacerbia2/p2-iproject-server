@@ -16,7 +16,7 @@ const isLoggedIn = async (request, response, next) => {
 
 router.post('/register', isLoggedIn, UserController.createUser);
 router.post('/login', isLoggedIn, UserController.userLogin);
-// router.post('/google-login', isLoggedIn, UserController.googleLogin);
+router.post('/google-login', isLoggedIn, UserController.googleLogin);
 router.use(authentication);
 router.get('/carts', UserController.getCart);
 router.post('/carts/:ProductId', UserController.addCart);
@@ -36,6 +36,6 @@ const deleteCartAuthorization = async (request, response, next) => {
 }
 
 router.delete('/carts/:CartId', deleteCartAuthorization, UserController.deleteCart);
-
+router.get('/transactions', UserController.transactions);
 
 module.exports = router;
