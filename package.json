@@ -4,8 +4,8 @@
   "description": "Individual Project - Server",
   "main": "index.js",
   "scripts": {
-    "start": "node main.js",
-    "dev": "npx nodemon main.js",
+    "start": "node app.js",
+    "dev": "npx nodemon app.js",
     "test": "jest --forceExit --runInBand"
   },
   "repository": {

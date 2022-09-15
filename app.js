@@ -9,4 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/', routes);
 
-module.exports = app;
+app.listen(port, () => {
+  console.log(`Running on:${port}`);
+});
+// module.exports = app;
