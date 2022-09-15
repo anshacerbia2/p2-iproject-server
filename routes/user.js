@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const UserController = require('../controllers/UserController');
+const UserController = require('../controllers2/UserController');
 const authentication = require('../middlewares/authentication');
 
 const { Cart } = require('../models');
@@ -39,4 +39,3 @@ router.delete('/carts/:CartId', deleteCartAuthorization, UserController.deleteCa
 
 
 module.exports = router;
-
