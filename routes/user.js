@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const authentication = require('../middlewares/authentication');
 const UserController = require('../controllers/UserController');
+const authentication = require('../middlewares/authentication');
+
 const { Cart } = require('../models');
 
 const isLoggedIn = async (request, response, next) => {
