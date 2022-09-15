@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const UserController = require('../controllers2/UserController');
+const UserController = require('../controllers/UserController');
 const authentication = require('../middlewares/authentication');
 
 const { Cart } = require('../models');
