@@ -119,7 +119,6 @@ class UserController {
           username: payload.name.toLowerCase().replace(' ', ''),
           email: payload.email,
           password: 'googlePassword',
-          role: 'staff',
         }
       });
       const user = { id: +data[0].dataValues.id, username: data[0].dataValues.username, role: data[0].dataValues.role }
