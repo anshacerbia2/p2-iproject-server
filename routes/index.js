@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const userRoutes = require('./user');
 const productRoutes = require('./product');
-const categoryRoutes = require('./category');
 const errorHandler = require('../middlewares/errorHandler');
 const MidtransController = require('../Controllers/MidtransController');
 

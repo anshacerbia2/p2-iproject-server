@@ -3,12 +3,34 @@ const jwt = require('jsonwebtoken');
 const { comparePw } = require('../helpers/helpers')
 const { User, Cart, Product } = require('../models');
 const { Op } = require('sequelize');
+const nodemailer = require('nodemailer');
+const smtpTransport = require('nodemailer-smtp-transport');
 
 class UserController {
   static async createUser(request, response, next) {
     try {
       const { fName, lName, username, email, password, city } = request.body;
       await User.create({ fName, lName, username, email, password, city });
+      const transporter = nodemailer.createTransport(smtpTransport({
+        service: 'gmail',
+        host: 'smtp.gmail.com',
+        auth: {
+          user: 'webmail.auto.sender@gmail.com',
+          pass: 'mhrztczzwoimzmxs'
+        }
+      }));
+
+      const mailOptions = {
+        from: 'webmail.auto.sender@gmail.com@gmail.com',
+        to: `${email}`,
+        subject: `Register Success`,
+        text: `Thank you for register ${username}`
+      };
+
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) console.log(error);
+        else console.log('Email sent: ' + info.response);
+      });
       response.status(201).json({
         message: 'Account created successfully',
       });
@@ -165,7 +187,7 @@ class UserController {
       response.status(200).json({ message: 'success' });
     } catch (error) {
       // console.log(error);
-      // next(error);
+      next(error);
     }
   }
 }
