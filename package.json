@@ -4,7 +4,7 @@
   "description": "Individual Project - Server",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node main.js",
     "dev": "npx nodemon main.js",
     "test": "jest --forceExit --runInBand"
   },
