@@ -11,7 +11,6 @@ class MidtransController {
   static async charge(request, response, next) {
     try {
       const { bank } = request.body;
-      console.log(bank);
       console.log(request.body);
       const UserId = +request.user.id;
       const cart = await Cart.findAll({
@@ -29,20 +28,15 @@ class MidtransController {
         },
         bank_transfer: { bank }
       };
+      console.log(data);
       const chargeResponse = await coreApi.charge(JSON.stringify(data));
+      console.log(chargeResponse);
       const newOrder = await Order.create({
         UserId,
         order_id: chargeResponse.order_id,
         response_midtrans: JSON.stringify(chargeResponse)
       });
-      response.status(200).json({
-        order_id: chargeResponse.order_id,
-        gross_amount: chargeResponse.gross_amount,
-        gross_amount: chargeResponse.gross_amount,
-        transaction_status: chargeResponse.transaction_status,
-        bank: chargeResponse.va_numbers[0].bank,
-        va_number: chargeResponse.va_numbers[0].va_number,
-      });
+      response.status(200).json(chargeResponse);
     } catch (error) {
       console.log(error);
       next(error);

@@ -187,21 +187,21 @@ class UserController {
     try {
       const { id: UserId } = request.user;
       const transactions = await Order.findAll({ where: { UserId } });
-      let result = []
-      if (transactions.length) {
-        result = transactions.map(v => {
-          const x = JSON.parse(v.response_midtrans);
-          return {
-            order_id: v.order_id,
-            gross_amount: x.gross_amount,
-            transactions_status: x.transaction_status,
-            bank: x.va_numbers[0].bank,
-            va_number: x.va_numbers[0].va_number,
-          }
-        })
-      }
-      console.log(result);
-      response.status(200).json(result);
+      // let result = []
+      // if (transactions.length) {
+      //   result = transactions.map(v => {
+      //     const x = JSON.parse(v.response_midtrans);
+      //     return {
+      //       order_id: v.order_id,
+      //       gross_amount: x.gross_amount,
+      //       transactions_status: x.transaction_status,
+      //       bank: x.va_numbers[0].bank,
+      //       va_number: x.va_numbers[0].va_number,
+      //     }
+      //   })
+      // }
+      // console.log(result);
+      response.status(200).json(transactions);
     } catch (error) {
       console.log(error);
       next(error);
