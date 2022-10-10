@@ -6,8 +6,8 @@ const MidtransController = require('../controllers/MidtransController');
 const axios = require('axios');
 
 const x = (request, response, next) => {
-  response.header("Access-Control-Allow-Origin", "*");
-  response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  request.header("Access-Control-Allow-Origin", "*");
+  request.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 };
 
