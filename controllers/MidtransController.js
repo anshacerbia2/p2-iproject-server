@@ -52,8 +52,7 @@ class MidtransController {
   static async notification(request, response, next) {
     try {
       let notificationJson = await coreApi.transaction.notification(request.body);
-      notificationJson = JSON.stringify();
-      await Order.update({ response_midtrans: notificationJson }, { where: { order_id: notificationJson.order_id } });
+      await Order.update({ response_midtrans: JSON.stringify(notificationJson) }, { where: { order_id: notificationJson.order_id } });
       response.status(200).json('OK')
     } catch (error) {
       next(error)
