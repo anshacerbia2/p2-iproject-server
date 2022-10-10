@@ -7,11 +7,11 @@ const coreApi = new midtransClient.CoreApi({
   clientKey: process.env.MIDTRANS_CLIENT_KEY
 });
 
-const apiClient = new midtransClient.Snap({
-  isProduction: false,
-  serverKey: process.env.MIDTRANS_SERVER_KEY,
-  clientKey: process.env.MIDTRANS_CLIENT_KEY
-});
+// const apiClient = new midtransClient.Snap({
+//   isProduction: false,
+//   serverKey: process.env.MIDTRANS_SERVER_KEY,
+//   clientKey: process.env.MIDTRANS_CLIENT_KEY
+// });
 
 class MidtransController {
   static async charge(request, response, next) {
@@ -51,8 +51,8 @@ class MidtransController {
 
   static async notification(request, response, next) {
     try {
-      const notificationJson = apiClient.transaction.notification();
-      await Order.update({ response_midtrans: notificationJson }, { where: { order_id: statusResponse.order_id } });
+      // const notificationJson = apiClient.transaction.notification();
+      // await Order.update({ response_midtrans: notificationJson }, { where: { order_id: statusResponse.order_id } });
       // const statusResponse = await apiClient.transaction.notification(request.body);
       // const response_midtrans = JSON.stringify(statusResponse);
       // await Order.update({ response_midtrans }, { where: { order_id: statusResponse.order_id } });
