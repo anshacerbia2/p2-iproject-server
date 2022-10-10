@@ -48,7 +48,7 @@ class MidtransController {
       next(error);
     }
   }
-
+  //
   static async notification(request, response, next) {
     try {
       const notificationJson = apiClient.transaction.notification();
