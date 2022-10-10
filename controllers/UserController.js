@@ -203,7 +203,7 @@ class UserController {
       // console.log(result);
       response.status(200).json(transactions);
     } catch (error) {
-      console.log(error);
+      console.log(error.data);
       next(error);
     }
   }

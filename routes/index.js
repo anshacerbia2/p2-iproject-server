@@ -5,13 +5,7 @@ const errorHandler = require('../middlewares/errorHandler');
 const MidtransController = require('../controllers/MidtransController');
 const axios = require('axios');
 
-const x = (request, response, next) => {
-  request.header("Access-Control-Allow-Origin", "*");
-  request.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-};
-
-router.post('/notification', x, MidtransController.notification);
+router.post('/notification', MidtransController.notification);
 router.get('/courier-provinces', async (request, response, next) => {
   try {
     const data = await axios.get('https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json');

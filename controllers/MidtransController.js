@@ -51,13 +51,10 @@ class MidtransController {
   //
   static async notification(request, response, next) {
     try {
-      const notificationJson = apiClient.transaction.notification();
+      let notificationJson = await coreApi.transaction.notification(request.body);
+      notificationJson = JSON.stringify();
       await Order.update({ response_midtrans: notificationJson }, { where: { order_id: notificationJson.order_id } });
-      // const statusResponse = await apiClient.transaction.notification(request.body);
-      // const response_midtrans = JSON.stringify(statusResponse);
-      // await Order.update({ response_midtrans }, { where: { order_id: statusResponse.order_id } });
-      response.status(200).json('OK');
-      // .json({ message: 'Update Succes' })
+      response.status(200).json('OK')
     } catch (error) {
       next(error)
     }
